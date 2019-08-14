@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria implements Serializable {
+public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -18,28 +18,28 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private Double price;
 	
-	private List<Produto> produtos = new ArrayList<>();
-	
+	private List<Categoria> categorias = new ArrayList<>();
 	
 	//Constructors
-	public Categoria() {
+	public Produto() {
 	}
-	public Categoria(Integer id, String name) {
+	public Produto(Integer id, String name, Double price) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.price = price;
 	}
-
 	
-	//Getters and Setters
+	//Getters and setters
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -47,15 +47,22 @@ public class Categoria implements Serializable {
 		this.name = name;
 	}
 	
-	public List<Produto> getProdutos() {
-		return produtos;
+	public Double getPrice() {
+		return price;
 	}
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 	
-	//HashCode and Equals
+	//HashCode and equals for Id
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -71,12 +78,13 @@ public class Categoria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
+	}	
+	
 }
