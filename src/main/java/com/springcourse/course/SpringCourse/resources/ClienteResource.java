@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springcourse.course.SpringCourse.domain.Cliente;
 import com.springcourse.course.SpringCourse.services.ClienteService;
-
+ 
 @RestController
 @RequestMapping(value = "/clientes")
 public class ClienteResource {
