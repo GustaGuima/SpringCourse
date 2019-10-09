@@ -2,7 +2,9 @@ package com.springcourse.course.SpringCourse.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +36,8 @@ public class Produto implements Serializable{
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	private Set<ItemPedido> itens = new HashSet<>();
+	
 	//Constructors
 	public Produto() {
 	}
@@ -45,6 +49,17 @@ public class Produto implements Serializable{
 	}
 	
 	//Getters and setters
+	public List<Pedido> getPedidos(){
+		List<Pedido> pedidos = new ArrayList<>();
+		for(ItemPedido x : itens) {
+			pedidos.add(x.getPedido());
+		}
+		return pedidos;
+		
+	}
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -73,6 +88,12 @@ public class Produto implements Serializable{
 		this.categorias = categorias;
 	}
 
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+	public void setItens(Set<ItemPedido> itens) {
+		this.itens = itens;
+	}	
 	
 	//HashCode and equals for Id
 	@Override
@@ -97,6 +118,6 @@ public class Produto implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
+	}
 	
 }
