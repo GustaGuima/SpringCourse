@@ -22,4 +22,9 @@ public class CategoriaService {
 				"Objeto nao encontrado! id : "+ id +" Categoria : "+ Categoria.class.getName()));
 	}
 
+	public Categoria insert(Categoria categoria) {
+		categoria.setId(null);
+		return categoriaDAO.save(categoria);
+	}
+
 }
