@@ -27,4 +27,9 @@ public class CategoriaService {
 		return categoriaDAO.save(categoria);
 	}
 
+	public Categoria update(Categoria categoria) {
+		search(categoria.getId());
+		return categoriaDAO.save(categoria);
+	}
+
 }
