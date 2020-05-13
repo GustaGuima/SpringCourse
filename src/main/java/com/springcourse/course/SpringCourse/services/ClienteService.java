@@ -50,7 +50,7 @@ public class ClienteService {
 		try {
 			clienteDAO.deleteById(id);
 		} catch(DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possivel excluir esse Cliente pois há entidades relacionadas");			
+			throw new DataIntegrityException("Não é possivel excluir ess Cliente pois há entidades relacionadas");			
 		}
 	}
 
