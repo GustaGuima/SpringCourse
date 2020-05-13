@@ -36,7 +36,7 @@ public class SpringCourseApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CategoriaRepository categoriaDAO;
-	
+		
 	@Autowired
 	private ProdutoRepository produtoDAO;
 	
